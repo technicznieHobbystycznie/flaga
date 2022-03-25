@@ -10,8 +10,12 @@
     <br>
     <br>
     <br>
-    <h1 style="text-align:center">{{zmienna}}</h1>
-    <h5 style="text-align:center">{{ciekawa_postac}}</h5>
+    <h1 style="text-align:center">Postacie w kolejności słów w opisie: </h1>
+    {% for p, o, d in opisy_postaci %}
+    <h1 style="text-align:center">{{p}}</h1>
+    <p>{{o}}</p>
+    <h1>{{d}} - Ilość słów w opisie</h1>
+    {% endfor %}
     <br>
     <br>
 </body>

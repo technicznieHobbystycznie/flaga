@@ -29,10 +29,19 @@ def brudnopis():
 
 @app.route('/ciekawe_postacie')
 def ciekawe_postacie():
-    lista_ciekawych_postaci = []
-    zmienna_python = 'abc'
-    ciekawa_postac = character('Małysz')
-    return render_template('ciekawe_postacie.html', zmienna=zmienna_python, ciekawa_postac=ciekawa_postac)         
+    lista_ciekawych_postaci = ['Petlura','Wiśniowiecki','Chmielnicki','Zagłoba','Potocki','Radziwiłł','Batory']
+
+    opisy_postaci = []
+    for i in range(3):
+        postac = random.choice(lista_ciekawych_postaci)
+        indeks = lista_ciekawych_postaci.index(postac)
+        lista_ciekawych_postaci.pop(indeks)
+        ciekawa_postac = character(postac)
+        dlugosc_opisu = len(ciekawa_postac)
+        info = [postac, ciekawa_postac, dlugosc_opisu ]
+        opisy_postaci.append(info)
+
+    return render_template('ciekawe_postacie.html', opisy_postaci=opisy_postaci)         
 
 if __name__=="__main__":
     app.run()
