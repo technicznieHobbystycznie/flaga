@@ -40,6 +40,7 @@ def ciekawe_postacie():
         dlugosc_opisu = len(ciekawa_postac)
         info = [postac, ciekawa_postac, dlugosc_opisu ]
         opisy_postaci.append(info)
+        opisy_postaci.sort(key = lambda x: x[2], reverse = True)
 
     return render_template('ciekawe_postacie.html', opisy_postaci=opisy_postaci)         
 
